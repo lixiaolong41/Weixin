@@ -1,4 +1,4 @@
-from redis import StrictRedis
+from redis import Redis
 from weixin.config import *
 from pickle import dumps, loads
 from weixin.request import WeixinRequest
@@ -9,7 +9,7 @@ class RedisQueue():
         """
         初始化Redis
         """
-        self.db = StrictRedis(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD)
+        self.db = Redis(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD)
 
     def add(self, request):
         """
